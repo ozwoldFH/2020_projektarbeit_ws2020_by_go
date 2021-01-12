@@ -4,8 +4,21 @@
 import config from "./config.js";
 import express from "express";
 import apiRouter from "./api/index.js";
+import sassMiddleware from "node-sass-middleware";
+import path from "path";
 
 const server = express();
+
+// hacky code just to use __dirname -> not available in ES module
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+server.use(sassMiddleware({
+    src: path.join(__dirname, "sass"),
+    dest: path.join(__dirname, "public")
+}));
+
 
 server.set("view engine", "ejs");
 
