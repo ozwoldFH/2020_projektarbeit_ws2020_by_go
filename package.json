@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --exec babel-node server.js --ignore public/",
-    "dev": "webpack -wd"
+    "dev": "webpack -w --config ./webpack.config.cjs"
   },
   "author": "",
   "license": "ISC",
@@ -28,7 +28,7 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "webpack": "^5.12.3",
+    "webpack": "4.x",
     "webpack-cli": "^4.3.1"
   },
   "type": "module",
