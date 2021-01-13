@@ -1,5 +1,5 @@
 module.exports = {
-    parser: 'babel-eslint',
+    parser: "babel-eslint",
     env: {
         browser: true,
         commonjs: true,
@@ -8,24 +8,24 @@ module.exports = {
         jest: true,
     },
     extends: [
-        'eslint:recommended',
-        'plugin:react/recommended',
+        "eslint:recommended",
+        "plugin:react/recommended",
     ],
     parserOptions: {
         ecmaFeatures: {
             jsx: true,
         },
-        sourceType: 'module',
+        sourceType: "module",
     },
-    plugins: ['react'],
+    plugins: ["react"],
     rules: {
-        indent: ['error', 2, { SwitchCase: 1 }],
-        'linebreaker-style': ['error', 'unix'],
-        quotes: ['error', 'single'],
-        semi: ['error', 'always'],
-        'no-console': [
-            'warn', 
-            { allow: ['clear', 'info', 'error', 'dir', 'trace'] }
+        indent: ["error", 4, { SwitchCase: 2 }],
+        "linebreaker-style": 0,
+        quotes: ["error", "double"],
+        semi: ["error", "always"],
+        "no-console": [
+            "warn", 
+            { allow: ["clear", "info", "error", "dir", "trace"] }
         ],
     },
 };

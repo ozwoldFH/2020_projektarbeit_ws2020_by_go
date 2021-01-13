@@ -1,10 +1,10 @@
-.ContestPreview {
+.JSONPreview {
   margin: 1em;
-  border: 1px solid #ccc; }
-  .ContestPreview .category-name {
-    border-bottom: 1px solid #ccc;
+  border: 1px solid #000000; }
+  .JSONPreview .title {
+    border-bottom: 1px solid #000000;
     padding: 0.25em 0.5em;
     font-weight: bold;
-    background-color: #eee; }
-  .ContestPreview .contest-name {
+    background-color: #888888; }
+  .JSONPreview .description {
     padding: 0.5em; }

@@ -4,8 +4,8 @@ import data from "../src/testData.json";
 
 const router = express.Router();
 
-router.get("/contests", (req, res) => {
-    res.send({ contests: data.contests });
+router.get("/test", (req, res) => {
+    res.send({ jsonPreview: data.jsonPreview });
 });
 
 export default router;

@@ -1,13 +1,13 @@
 import React from "react";
 import Header from "./Header";
-import ContestPreview from "./ContestPreview";
+import JSONPreview from "./JSONPreview";
 import axios from "axios";
 
 
 class App extends React.Component {
     state = { 
         pageHeader:"My new header",
-        contests: []
+        jsonPreview: []
     };
 
     // component lifecycle
@@ -15,10 +15,10 @@ class App extends React.Component {
         // ajax, timers, listener
 
         // ajax call to the api with axios
-        axios.get("/api/contests")
+        axios.get("/api/test")
             .then(response => {
                 this.setState({
-                    contests: response.data.contests
+                    jsonPreview: response.data.jsonPreview
                 });
             })
             .catch(console.error);
@@ -36,8 +36,8 @@ class App extends React.Component {
             <div className="App">
                 <Header message={this.state.pageHeader} />
                 <div>
-                    {this.state.contests.map(contest =>
-                        <ContestPreview key={contest.id} {...contest} />
+                    {this.state.jsonPreview.map(x =>
+                        <JSONPreview key={x.id} {...x} />
                     )}
                 </div>
             </div>

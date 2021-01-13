@@ -1,24 +1,24 @@
 {
-    "contests": [
+    "jsonPreview": [
       {
         "id": 1,
-        "categoryName": "Business/Company",
-        "contestName": "Cognitive Building Bricks"
+        "title": "AAA",
+        "description": "aaa"
       },
       {
         "id": 2,
-        "categoryName": "Magazine/Newsletter",
-        "contestName": "Educating people about sustainable food production"
+        "title": "BBB",
+        "description": "bbb"
       },
       {
         "id": 3,
-        "categoryName": "Software Component",
-        "contestName": "Big Data Analytics for Cash Circulation"
+        "title": "CCC",
+        "description": "ccc"
       },
       {
         "id": 4,
-        "categoryName": "Website",
-        "contestName": "Free programming books"
+        "title": "DDD",
+        "description": "ddd"
       }
     ]
   }
