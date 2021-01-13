@@ -1,20 +1,22 @@
 import React from "react";
 import Header from "./Header";
 import JSONPreview from "./JSONPreview";
+import FacebookPostPreview from "./FacebookPostPreview";
 import axios from "axios";
 
 
 class App extends React.Component {
     state = { 
         pageHeader:"My new header",
-        jsonPreview: []
+        jsonPreview: [],
+        facebookPosts: []
     };
 
     // component lifecycle
     componentDidMount() {
         // ajax, timers, listener
 
-        // ajax call to the api with axios
+        // ajax test call to the api with axios
         axios.get("/api/test")
             .then(response => {
                 this.setState({
@@ -23,7 +25,14 @@ class App extends React.Component {
             })
             .catch(console.error);
 
-
+        // ajax call to the api with axios
+        axios.get("/facebook/get/posts")
+            .then(response => {
+                this.setState({
+                    facebookPosts: response.data.message.posts.data
+                });
+            })
+            .catch(console.error);
         
     }
     componentWillUnmount() {
@@ -38,6 +47,11 @@ class App extends React.Component {
                 <div>
                     {this.state.jsonPreview.map(x =>
                         <JSONPreview key={x.id} {...x} />
+                    )}
+                </div>
+                <div>
+                    {this.state.facebookPosts.map(x =>
+                        <FacebookPostPreview key={x.id} {...x} />
                     )}
                 </div>
             </div>

@@ -12,4 +12,24 @@
     .description {
       padding: 0.5em;
     }
+}
+
+.FacebookPostPreview {
+  margin: 1em;
+  border: 1px solid #000000;
+
+  .id {
+    border-bottom: 1px solid #000000;
+    padding: 0.25em 0.5em;
+    font-weight: bold;
+    background-color: #888888;
   }
+
+  .created_time {
+    padding: 0.5em;
+  }
+
+  .message {
+    padding: 0.5em;
+  }
+}

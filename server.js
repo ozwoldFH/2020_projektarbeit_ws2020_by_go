@@ -4,6 +4,7 @@
 import config from "./config.js";
 import express from "express";
 import apiRouter from "./api/index.js";
+import apiFacebook from "./api/facebook.js";
 import sassMiddleware from "node-sass-middleware";
 import path from "path";
 
@@ -29,6 +30,7 @@ server.get("/", (req, res) => {
 });
 
 server.use("/api", apiRouter);
+server.use("/facebook", apiFacebook);
 server.use(express.static("public"));
 
 server.listen(config.port, () => {
