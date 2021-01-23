@@ -22,7 +22,8 @@
     border-bottom: 1px solid #000000;
     padding: 0.25em 0.5em;
     font-weight: bold;
-    background-color: #888888;
+    color: #FFFFFF;
+    background-color: #4267B2;
   }
 
   .created_time {
@@ -31,5 +32,15 @@
 
   .message {
     padding: 0.5em;
+  }
+
+  .full_picture {
+    padding: 0.5em;
+  }
+
+  .like {
+    padding: 0.5em;
+    font-weight: bold;
+    color: #4267B2;
   }
 }

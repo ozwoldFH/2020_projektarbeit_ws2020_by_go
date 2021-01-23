@@ -33,6 +33,9 @@ server.use("/api", apiRouter);
 server.use("/facebook", apiFacebook);
 server.use(express.static("public"));
 
+// json
+//server.use(express.json());
+
 server.listen(config.port, () => {
     console.info("Server listening to port ", config.port);
 });
