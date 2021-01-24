@@ -37,7 +37,7 @@ function FacebookPostPreview (prop) {
     }
 
     if("full_picture" in prop){
-        full_picture = <img src={prop.full_picture} />
+        full_picture = <img src={prop.full_picture} />;
     } 
     // else {
     //     full_picture = <div></div>;

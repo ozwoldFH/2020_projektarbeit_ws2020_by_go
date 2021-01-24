@@ -28,3 +28,26 @@
     padding: 0.5em;
     font-weight: bold;
     color: #4267B2; }
+
+.InstagramPostPreview {
+  margin: 1em;
+  border: 1px solid black; }
+  .InstagramPostPreview img {
+    max-width: 300px;
+    max-height: 200px; }
+  .InstagramPostPreview .id {
+    border-bottom: 1px solid #000000;
+    padding: 0.25em 0.5em;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #c32aa3; }
+  .InstagramPostPreview .created_time {
+    padding: 0.5em; }
+  .InstagramPostPreview .message {
+    padding: 0.5em; }
+  .InstagramPostPreview .full_picture {
+    padding: 0.5em; }
+  .InstagramPostPreview .like {
+    padding: 0.5em;
+    font-weight: bold;
+    color: #4267B2; }

@@ -9,7 +9,6 @@ const router = express.Router();
 var apiKey = "";
 router.use(express.json());
 
-console.log("UUUUUUUUUUUULTRAAAAAAA", {fields: ["id,name,posts{created_time,full_picture,reactions,description,message,comments,picture}"]});
 
 
 router.get("/test", (req, res) => {

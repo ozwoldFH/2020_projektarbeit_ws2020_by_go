@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import JSONPreview from "./JSONPreview";
 import FacebookPostPreview from "./FacebookPostPreview";
+import InstagramPostPreview from "./InstagramPostPreview";
 import axios from "axios";
 // import FacebookLogin from "react-facebook-login";
 import { FacebookLogin } from "react-facebook-login-component";
@@ -12,10 +13,12 @@ class App extends React.Component {
         pageHeader:"My new header",
         jsonPreview: [],
         facebookPosts: [],
+        instagramPosts: []
         //facebookApiKey: []
     };
 
     facebookSetKey = this.facebookSetKey.bind(this);
+    instagramGetPosts_dev = this.instagramGetPosts_dev.bind(this);
     
     constructor(){
         super();
@@ -77,6 +80,41 @@ class App extends React.Component {
         }).catch(console.error);
     }
 
+    instagramGetAuthentification() {
+        axios.get("/instagram/get/authentificationURL")
+            .then(response => {
+                window.open(response.data);
+            }).catch(console.error);
+    }
+
+    instagramGetPosts() {
+        axios.get("/instagram/post/setKey")
+            .then(response => {
+                console.log(response);
+                axios.get("/instagram/get/posts")
+                    .then(response => {
+                        console.log("MY POSTS: ", response.data);
+                        this.setState({
+                            instagramPosts: response.data
+                        });
+                    })
+                    .catch(console.error);
+            }).catch(console.error);
+    }
+
+    // i cannot access to much the token -> using the developer token which is valid for 30 days
+    instagramGetPosts_dev() {
+        axios.get("/instagram/get/postsDEV")
+            .then(response => {
+                console.log("MY POSTS: ", response.data.data);
+                this.setState({
+                    instagramPosts: response.data.data
+                });
+            })
+            .catch(console.error);
+
+    }
+
     // todo -> function to check if key is valid -> return true/false
 
     checkKey() {
@@ -118,11 +156,17 @@ class App extends React.Component {
                 buttonText="You are already logged in"/>;
         }
 
+        let instagram_button_auth = <button type="button" className="btn btn-secondary" onClick={this.instagramGetAuthentification}>Instagram Authentification (every 1h)</button>;
+        //let instagram_button_get_posts = <button type="button" className="btn btn-danger" onClick={this.instagramGetPosts}>Get Instagram Posts</button>;
+        let instagram_button_get_posts = <button type="button" className="btn btn-danger" onClick={this.instagramGetPosts_dev}>Get Instagram Posts</button>;
+        
 
         return (
             <div className="App">
                 <Header message={this.state.pageHeader} />                
                 {button}
+                {instagram_button_auth}
+                {instagram_button_get_posts}
                 <div>
                     {this.state.jsonPreview.map(x =>
                         <JSONPreview key={x.id} {...x} />
@@ -134,8 +178,15 @@ class App extends React.Component {
                         <FacebookPostPreview key={x.id} {...x} />
                     )}
                 </div>
+                <div>
+                    {(this.state.instagramPosts && this.state.instagramPosts.length > 0) && this.state.instagramPosts.map(x =>
+                        <InstagramPostPreview key={x.id} {...x} />
+                    )}
+                </div>
                 
-                {/* <button type="button" className="btn btn-primary" onClick={this.MyFunctionTest}>CLickMe</button> */}
+
+
+                {/* <button type="button" className="btn btn-primary" onClick={this.instagramGetAuthentification}>CLickMe</button> */}
 
                 {/* <div className="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" scope="public_profile,email" onClick={this.MyFunctionTest}></div>
                      */}
